@@ -1,0 +1,18 @@
+.texto-card{
+  font-weight: bold;
+  color: white;
+  font-size: 28px;
+  margin-top: 60%;
+}
+
+.texto-cima{
+  font-weight: bold;
+  color: white;
+  font-size: 22px;
+
+}
+
+.border-titulo{
+  width: 50px;
+  border-bottom: 6px solid #cc0000;
+}

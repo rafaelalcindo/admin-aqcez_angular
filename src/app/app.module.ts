@@ -3,11 +3,19 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { RodapeComponent } from './rodape/rodape.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { NoticiasComponent } from './home/noticias/noticias.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RodapeComponent,
+    NavbarComponent,
+    HomeComponent,
+    NoticiasComponent
   ],
   imports: [
     BrowserModule
