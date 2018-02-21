@@ -5,6 +5,13 @@
   margin-top: 60%;
 }
 
+.texto-card2{
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+  margin-top: 23%;
+}
+
 .texto-cima{
   font-weight: bold;
   color: white;
@@ -15,4 +22,24 @@
 .border-titulo{
   width: 50px;
   border-bottom: 6px solid #cc0000;
+}
+
+.imagem_resto{
+  width: 350px;
+  height: 180px;
+  border-radius: 5px;
+}
+
+.media-body{
+  padding: 29px;
+}
+
+.texto_descri{
+  text-align: justify;
+  -ms-text-justify: inter-word;
+  text-justify: inter-word;
+}
+
+hr{
+  border: 1px solid #cc0000;
 }

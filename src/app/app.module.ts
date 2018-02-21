@@ -7,6 +7,8 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { NoticiasComponent } from './home/noticias/noticias.component';
+import { NoticiasgeralComponent } from './home/noticias/noticiasgeral/noticiasgeral.component';
+
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { NoticiasComponent } from './home/noticias/noticias.component';
     RodapeComponent,
     NavbarComponent,
     HomeComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    NoticiasgeralComponent,
+    
   ],
   imports: [
     BrowserModule
