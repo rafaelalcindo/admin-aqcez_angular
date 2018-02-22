@@ -1,0 +1,31 @@
+.todo {
+  background-color: #a6a6a6;
+}
+
+.noticias_div{
+  margin-top: 6%;
+}
+
+.estilo_capa_login{
+  width: 450px;
+  margin-left: 35%;
+  margin-top: 8%;
+  margin-bottom: 12%;
+  border-radius: 0px;
+}
+
+.btn{
+  border-radius: 0px;
+  width: 100%;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.form-control{
+  border-radius: 0px;
+}
+
+.form-control:focus{
+  border-color: #a6a6a6;
+  box-shadow: 0px 0px 1px rgb(115, 115, 115) inset, 0px 0px 4px rgb(115, 115, 115);
+}

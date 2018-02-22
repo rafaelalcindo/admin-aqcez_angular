@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { NoticiasComponent } from './home/noticias/noticias.component';
 import { NoticiasgeralComponent } from './home/noticias/noticiasgeral/noticiasgeral.component';
+import { SistemaComponent } from './sistema/sistema.component';
 
 
 
@@ -20,7 +21,8 @@ import { NoticiasgeralComponent } from './home/noticias/noticiasgeral/noticiasge
     NavbarComponent,
     HomeComponent,
     NoticiasComponent,
-    NoticiasgeralComponent
+    NoticiasgeralComponent,
+    SistemaComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RodapeComponent implements OnInit {
 
+  public certificado01: string = "/assets/rodape/ativo.png";
+  public cerfificado02: string = "/assets/rodape/dnbregistered.png";
+
   constructor() { }
 
   ngOnInit() {
