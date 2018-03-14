@@ -1,18 +1,26 @@
 <div class="row">
   <div class="col-12">
 
-      <div class="card estilo_capa_login" >
-        <div class="card-body">
-          <p class="text-center" >
-            <img [src]="logo_aqcez" width="130px" height="130px" alt="Login" class="rounded-circle">
-          </p>
-          <h5 class="card-title">Login:</h5>
-          <input class="form-control" id="login" value="" ><br/>
-          <h5 class="card-title" >Senha:</h5>
-          <input class="form-control" id="senha" value="" ><br/>
+      <div class="card estilo_capa_login" [@logintela]="estadoLoginTela"  >
 
-          <button type="button" class="btn btn-dark" id="entrar" >Entrar</button>
-        </div>
+        <form novalidate #formulario="ngForm" (ngSubmit)="logarUsuario()">
+           <!-- <pre> {{ formulario.value | json }} </pre>
+            <pre> Inválido {{ formulario.invalid | json }} </pre>
+            <pre> Válido {{ formulario.valid | json }} </pre>
+            -->
+          <div class="card-body">
+            <p class="text-center" >
+              <img [src]="logo_aqcez" width="130px" height="130px" alt="Login" class="rounded-circle">
+            </p>
+            <h5 class="card-title">Login:</h5>
+            <input type="text" class="form-control" id="login" name="login" placeholder="Login" minlength="5" required value="" ngModel #inputLogin="ngModel" ><br/>
+            <h5 class="card-title" >Senha:</h5>
+            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" minlength="5" required value="" ngModel #inputSenha="ngModel" ><br/>
+            <small *ngIf="!inputLogin.valid && inputLogin.touched || !inputSenha.valid && inputSenha.touched" class="form-text text-danger" >Email ou senha inválido</small>
+            <button type="submit" class="btn btn-dark" id="entrar" >Entrar</button>
+          </div>
+        </form>
+
       </div>
 
   </div>

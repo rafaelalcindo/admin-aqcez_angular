@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
@@ -12,7 +15,11 @@ import { NoticiasComponent } from './home/noticias/noticias.component';
 import { NoticiasgeralComponent } from './home/noticias/noticiasgeral/noticiasgeral.component';
 import { SistemaComponent } from './sistema/sistema.component';
 
+// services
+import { NoticiasService } from './home/home.service';
 
+//pipes
+import { DescricaoReduzida } from './util/pipesubstrin';
 
 @NgModule({
   declarations: [
@@ -22,13 +29,17 @@ import { SistemaComponent } from './sistema/sistema.component';
     HomeComponent,
     NoticiasComponent,
     NoticiasgeralComponent,
-    SistemaComponent
+    SistemaComponent,
+    DescricaoReduzida
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [NoticiasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

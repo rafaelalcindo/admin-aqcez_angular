@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-6">
 
-    <div class="card" style="width: 100%; height: 400px;">
+    <div class="card" style="width: 100%; height: 400px;" [@imagem01]="estadoImagem" >
       <div class="card-body" style="background-image: url('/assets/noticias/escritorio01.jpg'); background-size: cover;" >
         <div class="texto-cima">
-          <h6 class="card-subtitle mb-2 ">Card subtitle</h6>
+          <h6 class="card-subtitle mb-2 ">{{ primeirasNoticias02[0].titulo }}</h6>
           <div class="border-titulo" ></div>
         </div>
 
-        <p class="card-text texto-card">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="card-text texto-card">{{ primeirasNoticias02[0].decricao | descricaoReduzida:50 }}</p>
 
       </div>
     </div>
@@ -17,60 +17,66 @@
   <div class="col-6">
 
 
-    <div class="card" style="width: 100%; height: 245px;" >
+    <div class="card" style="width: 100%; height: 245px;" [@imagem02]="estadoImagem" >
       <div class="card-body" style="background-image: url('/assets/noticias/escritorio02.jpg'); background-size: cover;" >
         <div class="texto-cima">
-          <h6 class="card-subtitle mb-2 ">Card subtitle2</h6>
+          <h6 class="card-subtitle mb-2 ">{{ primeirasNoticias02[1].titulo }}</h6>
           <div class="border-titulo" ></div>
         </div>
 
-        <p class="card-text texto-card2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="card-text texto-card2">{{ primeirasNoticias02[1].decricao | descricaoReduzida:50 }}</p>
 
       </div>
     </div>
 
-    <div class="card" style="width: 100%; height: 245px;" >
+    <div class="card" style="width: 100%; height: 245px;" [@imagem03]="estadoImagem" >
       <div class="card-body" style="background-image: url('/assets/noticias/escritorio03.jpg'); background-size: cover;" >
         <div class="texto-cima">
-          <h6 class="card-subtitle mb-2 ">Card subtitle3</h6>
+          <h6 class="card-subtitle mb-2 ">{{ primeirasNoticias02[2].titulo }}</h6>
           <div class="border-titulo" ></div>
         </div>
 
-        <p class="card-text texto-card2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="card-text texto-card2">{{  primeirasNoticias02[2].decricao | descricaoReduzida:50 }}</p>
 
       </div>
     </div>
 
   </div>
 </div>
+
+
+
 <br/><br/>
 <div class="row" >
   <div class="col-10" >
       <ul class="list-unstyled">
-        <li class="media">
+
+        <li class="media" [@imagem04]="estadoImagem02" >
           <img class="mr-3 imagem_resto" src="/assets/noticias/engenheiro01.jpg" alt="image1">
           <div class="media-body">
-            <h5 class="mt-0 mb-1">List-based media object</h5>
-            <p class="texto_descri" > Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <h5 class="mt-0 mb-1">{{ primeirasNoticias03[0].titulo  }}</h5>
+            <p class="texto_descri" > {{ primeirasNoticias03[0].decricao | descricaoReduzida:200 }}</p>
           </div>
         </li>
-        <hr/>
-        <li class="media my-4">
+        <hr [@imagem04]="estadoImagem" />
+
+        <li class="media my-4" [@imagem05]="estadoImagem02" >
           <img class="mr-3 imagem_resto" src="/assets/noticias/arquiteto01.jpg" alt="imagem2">
           <div class="media-body">
-            <h5 class="mt-0 mb-1">List-based media object</h5>
-            <p class="texto_descri" >Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <h5 class="mt-0 mb-1">{{ primeirasNoticias03[1].titulo }}</h5>
+            <p class="texto_descri" >{{ primeirasNoticias03[1].decricao | descricaoReduzida:200 }}</p>
           </div>
-        </li>
-        <hr/>
-        <li class="media">
+        </li >
+        <hr [@imagem05]="estadoImagem" />
+
+        <li class="media" [@imagem06]="estadoImagem02" >
           <img class="mr-3 imagem_resto" src="/assets/noticias/ti01.jpg" alt="ti01">
           <div class="media-body">
-            <h5 class="mt-0 mb-1">List-based media object</h5>
-            <p class="texto_descri" > Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <h5 class="mt-0 mb-1">{{ primeirasNoticias03[2].titulo }}</h5>
+            <p class="texto_descri" > {{ primeirasNoticias03[2].decricao | descricaoReduzida:200 }}</p>
           </div>
         </li>
-        <hr/>
+        <hr [@imagem06]="estadoImagem" />
       </ul>
   </div>
 </div>
