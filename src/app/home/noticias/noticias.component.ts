@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, state, style, transition, animate  } from '@angular/core';
+import { Component, OnInit, AfterViewInit , trigger, state, style, transition, animate  } from '@angular/core';
 import { PrimeirasNoticias } from './../../models/PrimeiraNoticias.model';
 import { NoticiasService } from './../home.service';
 
@@ -102,5 +102,7 @@ export class NoticiasComponent implements OnInit {
       });
 
   }
+
+
 
 }

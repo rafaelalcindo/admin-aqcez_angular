@@ -8,7 +8,7 @@
           <div class="border-titulo" ></div>
         </div>
 
-        <p class="card-text texto-card">{{ primeirasNoticias02[0].decricao | descricaoReduzida:50 }}</p>
+        <p class="card-text texto-card">{{ primeirasNoticias02[0].decricao | descricaoReduzida:100 }}</p>
 
       </div>
     </div>
@@ -24,7 +24,7 @@
           <div class="border-titulo" ></div>
         </div>
 
-        <p class="card-text texto-card2">{{ primeirasNoticias02[1].decricao | descricaoReduzida:50 }}</p>
+        <p class="card-text texto-card2">{{ primeirasNoticias02[1].decricao | descricaoReduzida:100 }}</p>
 
       </div>
     </div>
@@ -36,7 +36,7 @@
           <div class="border-titulo" ></div>
         </div>
 
-        <p class="card-text texto-card2">{{  primeirasNoticias02[2].decricao | descricaoReduzida:50 }}</p>
+        <p class="card-text texto-card2">{{ primeirasNoticias02[2].decricao | descricaoReduzida:100 }}</p>
 
       </div>
     </div>
@@ -54,11 +54,11 @@
         <li class="media" [@imagem04]="estadoImagem02" >
           <img class="mr-3 imagem_resto" src="/assets/noticias/engenheiro01.jpg" alt="image1">
           <div class="media-body">
-            <h5 class="mt-0 mb-1">{{ primeirasNoticias03[0].titulo  }}</h5>
-            <p class="texto_descri" > {{ primeirasNoticias03[0].decricao | descricaoReduzida:200 }}</p>
+            <h5 class="mt-0 mb-1">{{ primeirasNoticias03[0].titulo }}</h5>
+            <p class="texto_descri" >{{ primeirasNoticias03[0].decricao | descricaoReduzida:200 }}</p>
           </div>
         </li>
-        <hr [@imagem04]="estadoImagem" />
+        <hr [@imagem04]="estadoImagem02" />
 
         <li class="media my-4" [@imagem05]="estadoImagem02" >
           <img class="mr-3 imagem_resto" src="/assets/noticias/arquiteto01.jpg" alt="imagem2">
@@ -67,7 +67,7 @@
             <p class="texto_descri" >{{ primeirasNoticias03[1].decricao | descricaoReduzida:200 }}</p>
           </div>
         </li >
-        <hr [@imagem05]="estadoImagem" />
+        <hr [@imagem05]="estadoImagem02" />
 
         <li class="media" [@imagem06]="estadoImagem02" >
           <img class="mr-3 imagem_resto" src="/assets/noticias/ti01.jpg" alt="ti01">
@@ -76,7 +76,7 @@
             <p class="texto_descri" > {{ primeirasNoticias03[2].decricao | descricaoReduzida:200 }}</p>
           </div>
         </li>
-        <hr [@imagem06]="estadoImagem" />
+        <hr [@imagem06]="estadoImagem02" />
       </ul>
   </div>
 </div>

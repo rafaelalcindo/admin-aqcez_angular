@@ -20,6 +20,8 @@ import { NoticiasService } from './home/home.service';
 
 //pipes
 import { DescricaoReduzida } from './util/pipesubstrin';
+import { NoticiacadaComponent } from './home/noticias/noticiacada/noticiacada.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { DescricaoReduzida } from './util/pipesubstrin';
     NoticiasComponent,
     NoticiasgeralComponent,
     SistemaComponent,
-    DescricaoReduzida
+    DescricaoReduzida,
+    NoticiacadaComponent    
   ],
   imports: [
     BrowserModule,

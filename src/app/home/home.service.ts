@@ -21,5 +21,14 @@ export class NoticiasService {
             .then((resposta: any) => resposta.json());
     }
 
+    public getNoticiaIndividual(id: number): Promise<PrimeirasNoticias> {
+        return this.http.get(`http://127.0.0.1:8000/noticiaindividual/${id}`)
+            .toPromise()
+            .then((resposta: any) => resposta.json() )
+            .catch((error: any) => {
+                error.json();
+            })
+    }
+
 }
 
