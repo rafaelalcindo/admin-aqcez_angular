@@ -1,6 +1,10 @@
-
 import { Component, OnInit, OnDestroy, ViewChild ,AfterViewInit, trigger, state, style, transition, animate } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Auth } from './../models/login_auth.model';
+import { Login_Auth } from './login_auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-sistema',
@@ -25,7 +29,9 @@ export class SistemaComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChild('formulario') public formulario: NgForm;
 
-  constructor() { }
+  constructor(private login_auth: Login_Auth,
+              private activatedRoute: ActivatedRoute,
+              private router: Router ) { }
 
   ngOnInit() {
   }
@@ -42,8 +48,12 @@ export class SistemaComponent implements OnInit, OnDestroy, AfterViewInit {
     document.querySelector('body').classList.add('todo');
   }
 
-  public logarUsuario():void {
-    
+  public logarUsuario(): void {
+    console.log(this.formulario.value.login);
+    this.login_auth.logarUsuario(this.formulario.value.login, this.formulario.value.senha)
+      .subscribe((resposta: any) => {
+        console.log(resposta);
+      });
   }
 
 }

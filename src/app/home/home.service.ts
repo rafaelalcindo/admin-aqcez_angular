@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class NoticiasService {
+    
 
     constructor(private http: Http) {}
 
@@ -27,7 +28,25 @@ export class NoticiasService {
             .then((resposta: any) => resposta.json() )
             .catch((error: any) => {
                 error.json();
-            })
+            });
+    }
+
+    public getNoticiaGeral(): Promise<any[]> {
+        return this.http.get(`http://127.0.0.1:8000/noticiageral`)
+            .toPromise()
+            .then((resposta: any) => resposta.json() )
+            .catch((error: any) => {
+              error.json();
+            });
+    }
+
+    public getNoticiaGeralPagina(pagina: number): Promise<any[]> {
+        return this.http.get(`http://127.0.0.1:8000/noticiageral?page=${pagina}`)
+            .toPromise()
+            .then((resposta: any) => resposta.json() )
+            .catch((error: any) => {
+                error.json();
+            });
     }
 
 }

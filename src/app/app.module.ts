@@ -17,6 +17,7 @@ import { SistemaComponent } from './sistema/sistema.component';
 
 // services
 import { NoticiasService } from './home/home.service';
+import { Login_Auth } from './sistema/login_auth.service';
 
 //pipes
 import { DescricaoReduzida } from './util/pipesubstrin';
@@ -33,7 +34,7 @@ import { NoticiacadaComponent } from './home/noticias/noticiacada/noticiacada.co
     NoticiasgeralComponent,
     SistemaComponent,
     DescricaoReduzida,
-    NoticiacadaComponent    
+    NoticiacadaComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +43,7 @@ import { NoticiacadaComponent } from './home/noticias/noticiacada/noticiacada.co
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [NoticiasService],
+  providers: [NoticiasService, Login_Auth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

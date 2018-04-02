@@ -1,30 +1,50 @@
 <div class="row" >
   <div class="col-10" >
+
     <ul class="list-unstyled">
-      <li class="media">
-        <img class="mr-3 imagem_resto" src="/assets/noticias/engenheiro01.jpg" alt="image1">
-        <div class="media-body">
-          <h5 class="mt-0 mb-1">List-based media object</h5>
-          <p class="texto_descri" > Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-        </div>
-      </li>
-      <hr/>
-      <li class="media my-4">
-        <img class="mr-3 imagem_resto" src="/assets/noticias/arquiteto01.jpg" alt="imagem2">
-        <div class="media-body">
-          <h5 class="mt-0 mb-1">List-based media object</h5>
-          <p class="texto_descri" >Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-        </div>
-      </li>
-      <hr/>
-      <li class="media">
-        <img class="mr-3 imagem_resto" src="/assets/noticias/ti01.jpg" alt="ti01">
-        <div class="media-body">
-          <h5 class="mt-0 mb-1">List-based media object</h5>
-          <p class="texto_descri" > Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-        </div>
-      </li>
-      <hr/>
+
+
+      
+      <div *ngFor="let noticia of dados">
+
+        <li class="media" [routerLink]="['/noticiacada', noticia.id]" style="cursor: pointer;" >
+            <img class="mr-3 imagem_resto" [src]="noticia.img !== null? noticia.img :  '/assets/noticias/engenheiro01.jpg'" alt="image1">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">{{ noticia.titulo }}</h5>
+              <p class="texto_descri" >{{ noticia.decricao | descricaoReduzida:80 }} </p>
+            </div>
+            
+        </li>
+        <hr/>
+      </div>
+        
+              
+
     </ul>
+
+    
+
+    <div class="d-flex justify-content-center" id="navegacao">
+      <nav aria-label="navigation" class="navigation">
+        <ul class="pagination">
+          
+          <li class="page-item" [ngClass]="{'disabled': page <= 1}">
+            <a class="page-link" href="#" (click)="passarPagina(page - 1, $event)" >Previous</a>
+          </li>
+
+          
+            <li class="page-item" [ngClass]="{'active': i+1 == page}" *ngFor="let p of pages; let i  = index" >
+              <a class="page-link" href="#" (click)="passarPagina(i+1, $event)" >{{ i + 1 }}</a>
+            </li>
+
+
+          <li class="page-item" [ngClass]="{'disabled': page >= 16}" >
+            <a class="page-link" href="#" (click)="passarPagina(page + 1, $event)" >Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>   
+
+
   </div>
 </div>
