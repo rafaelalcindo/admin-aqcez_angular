@@ -26,6 +26,7 @@ export class SistemaComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public estadoLoginTela: string = 'criado';
   public logo_aqcez: string = "/assets/login/logo_aqcez.jpg";
+  public loginValido: boolean = true;
 
   @ViewChild('formulario') public formulario: NgForm;
 
@@ -52,8 +53,18 @@ export class SistemaComponent implements OnInit, OnDestroy, AfterViewInit {
     console.log(this.formulario.value.login);
     this.login_auth.logarUsuario(this.formulario.value.login, this.formulario.value.senha)
       .subscribe((resposta: any) => {
-        console.log(resposta);
-      });
+        if ( resposta.logar === undefined ) {
+          console.log('entrou no sistema');
+          localStorage.setItem('id_usuario', resposta.usuario_id);
+          this.router.navigate(['/painel']);
+        } else {
+          console.log('não entrou no sistema');
+          this.loginValido = false;
+          document.getElementById('login').classList.add('ng-invalid');
+          document.getElementById('senha').classList.add('ng-invalid');
+        }
+      }
+    );
   }
 
 }

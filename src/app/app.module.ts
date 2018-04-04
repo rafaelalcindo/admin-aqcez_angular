@@ -18,10 +18,15 @@ import { SistemaComponent } from './sistema/sistema.component';
 // services
 import { NoticiasService } from './home/home.service';
 import { Login_Auth } from './sistema/login_auth.service';
+import { Autenticacao } from './sistema/autenticacoes/autenticacao.service';
+import { AutenticacaoGuard } from './sistema/autenticacoes/autenticacao-guard.service';
 
 //pipes
 import { DescricaoReduzida } from './util/pipesubstrin';
 import { NoticiacadaComponent } from './home/noticias/noticiacada/noticiacada.component';
+import { PainelPrincipalComponent } from './sistema/painel-principal/painel-principal.component';
+
+
 
 
 @NgModule({
@@ -34,7 +39,8 @@ import { NoticiacadaComponent } from './home/noticias/noticiacada/noticiacada.co
     NoticiasgeralComponent,
     SistemaComponent,
     DescricaoReduzida,
-    NoticiacadaComponent
+    NoticiacadaComponent,
+    PainelPrincipalComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,7 @@ import { NoticiacadaComponent } from './home/noticias/noticiacada/noticiacada.co
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [NoticiasService, Login_Auth],
+  providers: [NoticiasService, Login_Auth, AutenticacaoGuard, Autenticacao],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

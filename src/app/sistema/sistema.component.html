@@ -16,7 +16,7 @@
             <input type="text" class="form-control" id="login" name="login" placeholder="Login" minlength="5" required value="" ngModel #inputLogin="ngModel" ><br/>
             <h5 class="card-title" >Senha:</h5>
             <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" minlength="5" required value="" ngModel #inputSenha="ngModel" ><br/>
-            <small *ngIf="!inputLogin.valid && inputLogin.touched || !inputSenha.valid && inputSenha.touched" class="form-text text-danger" >Email ou senha inválido</small>
+            <small *ngIf="!inputLogin.valid && inputLogin.touched || !inputSenha.valid && inputSenha.touched || !loginValido" class="form-text text-danger" >Email ou senha inválido</small>
             <button type="submit" class="btn btn-dark" id="entrar" >Entrar</button>
           </div>
         </form>

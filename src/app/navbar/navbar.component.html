@@ -9,7 +9,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="!usuarioLogado; else menuPainel">
     <ul class="navbar-nav mr-auto">
 
     </ul>
@@ -22,4 +22,21 @@
 
     </form>
   </div>
+
+  <ng-template #menuPainel>
+    <ul class="navbar-nav mr-auto">
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="">Home</a>
+        <a class="nav-item nav-link" routerLink="">Agenda</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/noticiageral">Noticias</a>
+
+      </div>
+
+    </form>
+  </ng-template>
+
+
 </nav>

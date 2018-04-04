@@ -6,10 +6,10 @@ import { Auth } from '../models/login_auth.model';
 
 import { Observable } from 'rxjs/Observable';
 
-
-
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
 const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
 const options = new RequestOptions({ headers: headers });
 const params  = new URLSearchParams();
@@ -27,7 +27,7 @@ export class Login_Auth {
     //let body: string = 'usuario=admin&senha=admin';
 
     return this.http.post(`${this.baseUrl}/logarUsuario`, formData )
-            .map((resposta: any) => resposta );
+            .map((resposta: any) => resposta.json() );
   }
 //JSON.stringify({usuario: 'admin', senha: 'admin'})
 
