@@ -29,9 +29,11 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="">Home</a>
-        <a class="nav-item nav-link" routerLink="">Agenda</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="">Home</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/painel" >Painel</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="">Agenda</a>
         <a class="nav-item nav-link" routerLinkActive="active" routerLink="/noticiageral">Noticias</a>
+        <a class="nav-item nav-link" routerLinkActive="active" style="cursor: pointer;" (click)="sair()" >Sair</a>
 
       </div>
 

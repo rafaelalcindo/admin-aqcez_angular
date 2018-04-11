@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-painel-principal',
@@ -7,9 +7,19 @@ import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 })
 export class PainelPrincipalComponent implements OnInit, OnDestroy, AfterViewInit {
 
+  public innerWidth: any; //pega a resolução da tela
+
   constructor() { }
 
   ngOnInit() {
+    this.innerWidth = window.innerWidth;
+    console.log('largura: ',this.innerWidth);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onresize(event) {
+    this.innerWidth = window.innerWidth;
+    console.log('largura automatica: ', window.innerWidth);
   }
 
   ngOnDestroy() {

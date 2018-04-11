@@ -1,0 +1,63 @@
+#menu_lateral {
+  height: 700px;
+  background-color: #666666;
+  padding-top: 15px;
+  padding-left: 20px;
+}
+
+.identificacao_lateral_nome {
+  color: white;
+  padding-top: 25px;
+  padding-left: 10px;
+}
+
+.simbolo_online {
+  color: greenyellow;
+  height: 5px;
+  width: 5px;
+  border-radius: 40px;
+}
+
+hr {
+  background-color: #bfbfbf;
+}
+
+/* Titulo Menu Css */
+.titulo_menu {
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+#row_titulo {
+  background-color: #f2f2f2;
+}
+
+/* css Menu do Painel  */
+
+.menus_cada {
+  margin: 4%;
+  width: 300px;
+  height: 150px;
+  background-color: dodgerblue;
+}
+
+#menu_rodape {
+  color: white;
+  background-color: #005ce6;
+}
+
+.icone_menu {
+  margin-top: 5px;
+  width: 80%;
+  height: 90%;
+}
+
+
+
+/* alterando bootstrap  */
+
+.badge {
+  border-radius: .80rem;
+  height: 10px;
+  width: 5px;
+}

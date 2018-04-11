@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+headers.append('Accept', 'application/json')
 const options = new RequestOptions({ headers: headers });
 const params  = new URLSearchParams();
 const formData = new FormData();
