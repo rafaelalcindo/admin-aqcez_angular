@@ -61,3 +61,11 @@ hr {
   height: 10px;
   width: 5px;
 }
+
+.list-group-item {
+  background-color: #666666;
+  color: white;
+  border: 1px solid rgba(200, 203, 203, 0.89);
+  border-right-width: 0px;
+  border-left-width: 0px;
+}
