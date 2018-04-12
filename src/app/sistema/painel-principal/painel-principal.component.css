@@ -39,6 +39,11 @@ hr {
   width: 300px;
   height: 150px;
   background-color: dodgerblue;
+  
+}
+
+.menus_cada:hover {
+  box-shadow: 2px 5px 8px 10px #a6a6a6;
 }
 
 #menu_rodape {
@@ -68,4 +73,8 @@ hr {
   border: 1px solid rgba(200, 203, 203, 0.89);
   border-right-width: 0px;
   border-left-width: 0px;
+}
+
+.list-group-item:hover {
+  background-color: #8c8c8c;
 }

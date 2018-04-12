@@ -25,6 +25,7 @@ import { AutenticacaoGuard } from './sistema/autenticacoes/autenticacao-guard.se
 import { DescricaoReduzida } from './util/pipesubstrin';
 import { NoticiacadaComponent } from './home/noticias/noticiacada/noticiacada.component';
 import { PainelPrincipalComponent } from './sistema/painel-principal/painel-principal.component';
+import { CadastrarOrcamentoComponent } from './cadastrar-orcamento/cadastrar-orcamento.component';
 
 
 
@@ -40,7 +41,8 @@ import { PainelPrincipalComponent } from './sistema/painel-principal/painel-prin
     SistemaComponent,
     DescricaoReduzida,
     NoticiacadaComponent,
-    PainelPrincipalComponent
+    PainelPrincipalComponent,
+    CadastrarOrcamentoComponent
   ],
   imports: [
     BrowserModule,
