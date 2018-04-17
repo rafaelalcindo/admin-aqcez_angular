@@ -56,7 +56,7 @@ export class PainelPrincipalComponent implements OnInit, OnDestroy, AfterViewIni
     document.querySelector('body').classList.add('todo');
   }
 
-  public mouseEntrou($event){
+  public mouseEntrou($event) {
     console.log('Evento: ', $event);
     this.hover = true;
   }

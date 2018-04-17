@@ -1,0 +1,91 @@
+<div class="container"  >
+  <div class="row">
+    <div class="col-sm">
+      <h3 class="text-center" id="titulo_centro" >Cadastro de Orçamento</h3>
+    </div>
+  </div>
+  <hr />
+
+  <div class="tela_login" *ngIf="!mudarTela; else cadastroSucesso" >
+    <form novalidate #formulario="ngForm" (ngSubmit)="cadastrarOrcamento()" >
+      <div class="row">
+
+        <div class="col-sm-6">
+          <label for="empresa" >Empresa:</label>
+          <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Empresa" minlength="4" required value="" ngModel #inputEmpresa="ngModel" />
+        </div>
+
+        <div class="col-sm-3" >
+          <label for="data" >Data:</label>
+          <input type="date" class="form-control" id="data" name="data" placeholder="Data" minlength="4" required value="" ngModel #inputData="ngModel" />
+        </div>
+
+        <div class="col-sm-3" >
+          <label for="hora" >Hora:</label>
+          <input type="text" class="form-control" id="hora" name="hora" placeholder="Hora" minlength="3" value="" ngModel #inputHora="ngModel" />
+        </div>
+
+      </div>
+
+      <div class="row" >
+
+        <div class="col-sm-6" >
+          <label for="contato" >Contato:</label>
+          <input type="text" class="form-control" id="contato" name="contato" placeholder="Contato" minlength="4" value="" ngModel #inputContato="ngModel" />
+        </div>
+
+        <div class="col-sm-6" >
+          <label for="telefone" >Telefone:</label>
+          <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" value=""  ngModel #inputTelefone="ngModel" />
+        </div>
+
+      </div>
+
+      <div class="row" >
+        <div class="col-sm" >
+            <label>Observação:</label>
+            <textarea class="form-control" id="observacao" name="observacao" placeholder="Observação" value="" ngModel #inputObservacao="ngModel"  >
+
+            </textarea>
+        </div>
+      </div>
+
+      <div class="row botao_cadastro" >
+        <div class="col-sm" >
+          <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-secondary" [disabled]="botaoDesabilitado">Cadastrar</button>
+          </div>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+
+  <ng-template #cadastroSucesso>
+      <div class="row" >
+        <div class="col-sm">
+          <h3 class="text-center" id="titulo_lanca_orcamento" >Obrigado por lançar o seu pedido de orçamento.</h3>
+          <br/>
+          <div class="d-flex justify-content-center">
+            <img src="/assets/icones_sistema/imagem_lanca_orcamento.jpg" class="rounded-bottom" alt="registroOrcamento" />
+          </div>
+          <br/>
+          <h4 class="text-center" id="titulo_lanca" >O que deseja fazer?</h4>
+          <div class="row" >
+            <div class="col sm-6 d-flex justify-content-end">
+              <button type="button" class="btn btn-primary btn-lg btn-block" (click)="mudarTelaOrcamento()" >Voltar para cadastrar outro orçamento.</button>
+            </div>
+            <div class="col sm-6">
+              <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="voltarPainel()" >Voltar para o Painel.</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </ng-template>
+
+
+
+</div>
+
+

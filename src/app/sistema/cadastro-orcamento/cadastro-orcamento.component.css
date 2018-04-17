@@ -1,0 +1,37 @@
+
+/* mudança bootstrap */
+
+.container {
+  margin-top: 40px;
+  background-color: #ffffff;
+  margin-bottom: 40px;
+  border-radius: 4px;
+}
+
+#titulo_centro {
+  margin-top: 5%;
+}
+
+.botao_cadastro {
+  margin-top: 4%;
+  margin-bottom: 40px;
+}
+
+
+/*mundaça bootstrap */
+
+.btn { 
+  border-radius: 0px;
+  width: 70%;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.form-control{
+  border-radius: 0px;
+}
+
+.form-control:focus{
+  border-color: #a6a6a6;
+  box-shadow: 0px 0px 1px rgb(115, 115, 115) inset, 0px 0px 4px rgb(115, 115, 115);
+}

@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +16,7 @@ import { NoticiasComponent } from './home/noticias/noticias.component';
 import { NoticiasgeralComponent } from './home/noticias/noticiasgeral/noticiasgeral.component';
 import { SistemaComponent } from './sistema/sistema.component';
 
+
 // services
 import { NoticiasService } from './home/home.service';
 import { Login_Auth } from './sistema/login_auth.service';
@@ -25,7 +27,13 @@ import { AutenticacaoGuard } from './sistema/autenticacoes/autenticacao-guard.se
 import { DescricaoReduzida } from './util/pipesubstrin';
 import { NoticiacadaComponent } from './home/noticias/noticiacada/noticiacada.component';
 import { PainelPrincipalComponent } from './sistema/painel-principal/painel-principal.component';
-import { CadastrarOrcamentoComponent } from './cadastrar-orcamento/cadastrar-orcamento.component';
+
+
+//modules
+import { SistemaModule } from './sistema/sistema.module';
+
+
+
 
 
 
@@ -42,12 +50,14 @@ import { CadastrarOrcamentoComponent } from './cadastrar-orcamento/cadastrar-orc
     DescricaoReduzida,
     NoticiacadaComponent,
     PainelPrincipalComponent,
-    CadastrarOrcamentoComponent
+
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    SistemaModule,
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
