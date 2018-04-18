@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 //componentes
-
+import { TelaOrcamentoComponent } from './orcamento/tela-orcamento/tela-orcamento.component';
 
 //routes
 import { RouterModule } from '@angular/router';
@@ -16,12 +15,14 @@ import { CadastroOrcamentoComponent } from './cadastro-orcamento/cadastro-orcame
 
 //services
 import { CadastroSistema } from './sistemaService/cadastros.service';
+import { OrcamentoService } from './orcamento/orcamento.service';
 
 
 @NgModule({
 
   declarations: [
-    CadastroOrcamentoComponent
+    CadastroOrcamentoComponent,
+    TelaOrcamentoComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +32,7 @@ import { CadastroSistema } from './sistemaService/cadastros.service';
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [CadastroSistema],
+  providers: [CadastroSistema, OrcamentoService],
   bootstrap: []
 })
 export class SistemaModule { }

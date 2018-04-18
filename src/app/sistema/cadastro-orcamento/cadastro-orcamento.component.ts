@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild , OnDestroy, AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router } from  '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Orcamento } from '../models/cadastroOrcamento.model';
 

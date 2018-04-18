@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 
 
@@ -10,6 +11,8 @@ import { SistemaComponent } from './sistema/sistema.component';
 import { NoticiacadaComponent } from './home/noticias/noticiacada/noticiacada.component';
 import { PainelPrincipalComponent } from './sistema/painel-principal/painel-principal.component';
 import { CadastroOrcamentoComponent } from './sistema/cadastro-orcamento/cadastro-orcamento.component';
+import { TelaOrcamentoComponent } from './sistema/orcamento/tela-orcamento/tela-orcamento.component';
+
 
 //sistema
 import { AutenticacaoGuard } from './sistema/autenticacoes/autenticacao-guard.service';
@@ -18,6 +21,7 @@ import { AutenticacaoGuard } from './sistema/autenticacoes/autenticacao-guard.se
 
 
 export const  ROUTES: Routes = [
+
   { path: '', component: HomeComponent, children: [
       { path: '', component: NoticiasComponent },
       { path: 'noticiageral', component: NoticiasgeralComponent },
@@ -26,5 +30,7 @@ export const  ROUTES: Routes = [
   },
   { path: 'sistema', component: SistemaComponent },
   { path: 'cadastro-orcamento', component: CadastroOrcamentoComponent, canActivate: [AutenticacaoGuard] },
-  { path: 'painel', component: PainelPrincipalComponent, canActivate: [AutenticacaoGuard] }
+  { path: 'painel', component: PainelPrincipalComponent, canActivate: [AutenticacaoGuard] },
+  { path: 'telaOrcamento', component: TelaOrcamentoComponent, canActivate: [AutenticacaoGuard] }
+
 ];
