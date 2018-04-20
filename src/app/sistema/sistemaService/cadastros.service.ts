@@ -29,6 +29,8 @@ export class CadastroSistema {
     formData.append('contato', orcamento.contato);
     formData.append('telefone', orcamento.telefone);
     formData.append('observacao', orcamento.observacao);
+    formData.append('entregue', '0');
+
 
     return this.http.post(`${this.baseUrl}/orcamento/inserirOrcamento`, formData)
           .map((resposta: any) => resposta.json() );

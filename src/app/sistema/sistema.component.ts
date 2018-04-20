@@ -15,9 +15,9 @@ import { ActivatedRoute, Router } from '@angular/router';
       state('criado', style({
         opacity: 1
       })),
-      transition('void => criado', [
+      transition('* => *', [
         style({ opacity: 0, transform: 'translate(0,-50px)' }),
-        animate('500ms 0s ease-in-out')
+        animate('500ms 1s ease-in-out')
       ])
     ])
   ]
