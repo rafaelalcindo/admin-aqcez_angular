@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 
 
@@ -10,8 +9,11 @@ import { NoticiasgeralComponent } from './home/noticias/noticiasgeral/noticiasge
 import { SistemaComponent } from './sistema/sistema.component';
 import { NoticiacadaComponent } from './home/noticias/noticiacada/noticiacada.component';
 import { PainelPrincipalComponent } from './sistema/painel-principal/painel-principal.component';
+
 import { CadastroOrcamentoComponent } from './sistema/cadastro-orcamento/cadastro-orcamento.component';
 import { TelaOrcamentoComponent } from './sistema/orcamento/tela-orcamento/tela-orcamento.component';
+import { ListarOrcamentoComponent } from './sistema/orcamento/listar-orcamento/listar-orcamento.component';
+import { LigarOrcamentoComponent } from './sistema/orcamento/ligar-orcamento/ligar-orcamento.component';
 
 
 //sistema
@@ -29,8 +31,12 @@ export const  ROUTES: Routes = [
     ]
   },
   { path: 'sistema', component: SistemaComponent },
-  { path: 'cadastro-orcamento', component: CadastroOrcamentoComponent, canActivate: [AutenticacaoGuard] },
   { path: 'painel', component: PainelPrincipalComponent, canActivate: [AutenticacaoGuard] },
-  { path: 'telaOrcamento', component: TelaOrcamentoComponent, canActivate: [AutenticacaoGuard] }
+
+  { path: 'telaOrcamento', component: TelaOrcamentoComponent, canActivate: [AutenticacaoGuard] },
+  { path: 'cadastro-orcamento', component: CadastroOrcamentoComponent, canActivate: [AutenticacaoGuard] },
+  { path: 'listaOrcamento', component: ListarOrcamentoComponent, canActivate: [AutenticacaoGuard] },
+  { path: 'ligarOrcamento/:id', component: LigarOrcamentoComponent, canActivate: [AutenticacaoGuard] }
+  
 
 ];

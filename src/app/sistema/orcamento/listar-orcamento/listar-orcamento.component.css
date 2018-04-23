@@ -1,0 +1,25 @@
+.container {
+  margin-top: 40px;
+  background-color: #ffffff;
+  margin-bottom: 40px;
+  border-radius: 4px;
+}
+
+#titulo_centro {
+  margin-top: 5%;
+}
+
+.paginacao {
+  margin-top: 5%;
+}
+
+.tela_listar_orcamento {
+  margin-top: 5%;
+}
+
+
+/* ========================= Css de Bootstrap  ===================== */
+
+.btn {
+  border-radius: 0px;
+}

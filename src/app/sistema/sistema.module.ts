@@ -16,6 +16,8 @@ import { CadastroOrcamentoComponent } from './cadastro-orcamento/cadastro-orcame
 //services
 import { CadastroSistema } from './sistemaService/cadastros.service';
 import { OrcamentoService } from './orcamento/orcamento.service';
+import { LigarOrcamentoComponent } from './orcamento/ligar-orcamento/ligar-orcamento.component';
+import { ListarOrcamentoComponent } from './orcamento/listar-orcamento/listar-orcamento.component';
 
 
 
@@ -24,7 +26,9 @@ import { OrcamentoService } from './orcamento/orcamento.service';
 
   declarations: [
     CadastroOrcamentoComponent,
-    TelaOrcamentoComponent
+    TelaOrcamentoComponent,
+    LigarOrcamentoComponent,
+    ListarOrcamentoComponent
   ],
   imports: [
     CommonModule,

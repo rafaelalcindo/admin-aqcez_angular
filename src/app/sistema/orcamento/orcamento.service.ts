@@ -28,6 +28,17 @@ export class OrcamentoService {
             .map((resposta: any) => resposta.json());
   }
 
+  public puxarDadosParaTabelaOrcamento(): Observable<Orcamento> {
+    return this.http.get(`${this.baseUrl}/orcamento/listarOrcamentoParaLigar`)
+            .map((resposta: any) => resposta.json());
+  }
+
+  public puxarDadosParaTabelaOrcamentoPagina(pagina: number): Observable<Orcamento> {
+    return this.http.get(`${this.baseUrl}/orcamento/listarOrcamentoParaLigar?page=${pagina}`)
+        .map( (resposta: any) => resposta.json() );
+  }
+
+
 
 }
 

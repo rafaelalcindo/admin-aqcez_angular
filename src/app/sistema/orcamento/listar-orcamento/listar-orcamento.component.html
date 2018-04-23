@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3 class="text-center" id="titulo_centro" >Listagem de Orçamento</h3>
+    </div>
+  </div>
+
+  <div class="tela_listar_orcamento" >
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table table-hover" >
+          <thead>
+            <th scope="col" >Empresa</th>
+            <th scope="col" >Contato</th>
+            <th scope="col" >Data</th>
+            <th scope="col" >Hora</th>
+            <th scope="col" >Telefone</th>
+            <th scope="col" >Responsável</th>
+            <th scope="col" >Ações</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let listaOrcamento of dados" [ngClass]="{'table-success': listaOrcamento.responsavel !== null, 'table-danger': listaOrcamento.responsavel === null }" >
+              <td>{{ listaOrcamento.empresa }}</td>
+              <td>{{ listaOrcamento.contato }}</td>
+              <td>{{ listaOrcamento.data | date: 'dd/MM/yyyy' }}</td>
+              <td>{{ listaOrcamento.hora }}</td>
+              <td>{{ listaOrcamento.telefone }}</td>
+              <td> {{ listaOrcamento.responsavel }} </td>
+              <td *ngIf="listaOrcamento.responsavel === null" > <button type="button" [routerLink]="['/ligarOrcamento', listaOrcamento.id]" class="btn btn-dark">Adicionar Responsável</button>  </td>
+              <td *ngIf="listaOrcamento.responsavel !== null" > <button type="button" class="btn btn-warning">Editar Responsável</button>  </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="paginacao" >
+    <div class="row">
+      <div class="col-sm-12">
+
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item" [ngClass]="{'disabled': page <= 1}" >
+                <a class="page-link" href="#" (click)="passarPagina(page - 1, $event)" tabindex="-1">anterior</a>
+              </li>
+
+              <li class="page-item" [ngClass]="{'active': i+1 == page}" *ngFor="let p of pages; let i = index" >
+                <a class="page-link" href="#" (click)="passarPagina(i+1, $event)" >{{ i + 1 }}</a>
+              </li>
+
+              <li class="page-item" [ngClass]="{'disabled': page >= lastPage}" >
+                <a class="page-link" (click)="passarPagina(page + 1, $event)" href="#">Próximo</a>
+              </li>
+            </ul>
+          </nav>
+
+      </div>
+    </div>
+  </div>
+</div>
