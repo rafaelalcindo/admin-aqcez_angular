@@ -4,26 +4,43 @@
         <h3 class="text-center" id="titulo_centro" >Tela de Ligar Orçamento</h3>
     </div>
   </div>
-</div>
-<hr />
 
-<div class="tela_liga_responsavel" >
-  <form>
-    <div class="row" >
+  <hr />
 
-      <div class="col-sm-6" >
-        <label for="" >Resposável</label>
-        <select class="form-control" >
-          <option>Marlice</option>
-          <option>Marivalda</option>
-          <option>Tibilena</option>
-        </select>
+  <div class="tela_liga_responsavel" >
+    <form>
+      <div class="row" >
+
+        <div class="col-sm-6" >
+          <label for="" >Resposável</label>
+          <select class="form-control" >
+            <option>Marlice</option>
+            <option>Marivalda</option>
+            <option>Tibilena</option>
+          </select>
+        </div>
+        
+        <div class="col-sm-6" >
+          <label for="data" >Data</label>
+          <input type="date" class="form-control" id="data" placeholder="Data" minlength="4" required value="" />
+        </div>
+      </div>
+      <br/>
+      <div class="row" >
+        <div class="col-sm-6" >
+          <label for="vistoria" >Vistoria:</label>
+          <p><input type="radio" class="vistoria" id="vistoria" value="sim" name="vistoria"  /> Sim &nbsp; &nbsp;&nbsp;&nbsp; <input type="radio" class="vistoria" id="vistoria" value="nao" name="vistoria"  /> Não </p>
+        </div>
+        <div class="col-sm-6" >
+          <label for="responsavel_vistoria" >Responsável Vistoria:</label>
+          <input type="text" class="form-control" id="responsavel_vistoria" name="responsavel_vistoria" placeholder="Responsável Vistoria" minlength="4" required value="" />
+        </div>
       </div>
 
+    </form>
+  </div>
 
-
-    </div>
-  </form>
 </div>
+
 
 
