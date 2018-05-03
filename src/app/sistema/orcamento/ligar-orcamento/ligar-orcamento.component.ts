@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { Orcamento } from '../../models/cadastroOrcamento.model';
 import { CadastroSistema } from './../../sistemaService/cadastros.service';
+import { OrcamentoService } from './../orcamento.service';
 
 
 @Component({
@@ -15,7 +17,8 @@ export class LigarOrcamentoComponent implements OnInit, OnDestroy, AfterViewInit
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private orcamentoService: OrcamentoService
   ) { }
 
   ngOnInit() {
@@ -23,6 +26,12 @@ export class LigarOrcamentoComponent implements OnInit, OnDestroy, AfterViewInit
       //console.log(parametro.id);
       this.routeParaGravar = parametro.id;
     })
+
+    this.orcamentoService.puxarFuncionarioOrcamento()
+      .subscribe((resposta: any) => {
+        console.log('resultado da Busca: ', resposta);
+      });
+
   }
 
   ngOnDestroy(): void {
