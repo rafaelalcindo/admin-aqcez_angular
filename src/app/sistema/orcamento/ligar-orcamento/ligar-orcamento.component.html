@@ -8,37 +8,51 @@
   <hr />
 
   <div class="tela_liga_responsavel" >
-    <form>
+    <form novalidate #formulario="ngForm" (ngSubmit)="LigarOrcamento()" >
       <div class="row" >
 
         <div class="col-sm-6" >
           <label for="" >Resposável</label>
-          <select class="form-control" >
-            <option>Marlice</option>
-            <option>Marivalda</option>
-            <option>Tibilena</option>
+          <select class="form-control" id="responsavel" name="responsavel" ngModel #selectOrcResp="ngModel"  >
+            <option *ngFor="let funcOrc of FuncOrcamento; let usuIndex = index" value="{{ usuIndex }}" (click)="responsavelSelecionado()" >{{funcOrc.usuario_nome}} {{ funcOrc.usuario_sobrenome }} </option>
+
           </select>
         </div>
-        
+
         <div class="col-sm-6" >
-          <label for="data" >Data</label>
-          <input type="date" class="form-control" id="data" placeholder="Data" minlength="4" required value="" />
+          <label for="data" >Data da  Vistoria</label>
+          <input type="date" class="form-control" id="data" name="data" placeholder="Data" minlength="4" [disabled]="PossuiVistoria" required value="" ngModel #inputData="ngModel" />
         </div>
       </div>
       <br/>
       <div class="row" >
         <div class="col-sm-6" >
           <label for="vistoria" >Vistoria:</label>
-          <p><input type="radio" class="vistoria" id="vistoria" value="sim" name="vistoria"  /> Sim &nbsp; &nbsp;&nbsp;&nbsp; <input type="radio" class="vistoria" id="vistoria" value="nao" name="vistoria"  /> Não </p>
+          <p><input type="radio" class="vistoria" id="vistoria" value="sim" name="vistoria"  ngModel #temVistorias (change)="temVistoria(temVistorias.value)"  /> Sim &nbsp; &nbsp;&nbsp;&nbsp; <input type="radio"  class="vistoria" id="vistoria" value="nao" name="vistoria" #temVistorian  [checked]='true' ngModel  (change)="temVistoria(temVistorian.value)"  /> Não </p>
         </div>
         <div class="col-sm-6" >
           <label for="responsavel_vistoria" >Responsável Vistoria:</label>
-          <input type="text" class="form-control" id="responsavel_vistoria" name="responsavel_vistoria" placeholder="Responsável Vistoria" minlength="4" required value="" />
+          <select class="form-control" [disabled]="PossuiVistoria" >
+              <option *ngFor="let funcEnge of FuncEngenharia; let i = index" value="{{ i }}" #indexArray (click)="selecionaFuncVistoria(indexArray.value)"  > {{ funcEnge.usuario_nome }} {{ funcEnge.usuario_sobrenome }} </option>
+          </select>
+          <div  >
+            <span *ngFor="let funcArrayEnge of FuncArrayEngenharia; let engIndex = index" class="badge badge-primary badge-pill">{{ funcArrayEnge.usuario_nome }} {{ funcArrayEnge.usuario_sobrenome }}   &nbsp;&nbsp; <span class="badge badge-primary"  (click)="eliminarSelecionadoFuncVistoria(engIndex)" >X</span> </span>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Meio de Entrega</label>
+          <select class="form-control"  [disabled]="PossuiVistoria" id="meio_entrega" name="meio_entrega" ngModel #selectMeioEntrega="ngModel">
+            <option value="projeto" >Projeto</option>
+            <option value="projeto" >Kit no Email</option>
+          </select>
         </div>
       </div>
       <hr/>
       <div class="row" >
-        <div class="col-sm" > 
+        <div class="col-sm" >
           <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-secondary" [disabled]="botaoDesabilitado">Ligar</button>
           </div>
