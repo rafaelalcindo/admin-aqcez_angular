@@ -120,6 +120,7 @@ export class LigarOrcamentoComponent implements OnInit, OnDestroy, AfterViewInit
             console.log('resposta do API ligacao: ', resposta);
             if(resposta[0].resultado === '1' ) {
               this.router.navigate(['/listaOrcamento']);
+              
             }
           });
       }
