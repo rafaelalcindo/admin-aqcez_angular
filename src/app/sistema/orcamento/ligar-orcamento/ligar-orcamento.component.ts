@@ -39,6 +39,11 @@ export class LigarOrcamentoComponent implements OnInit, OnDestroy, AfterViewInit
 
   public PossuiVistoria: boolean = true;
 
+  // =============== Validação formulario =================
+
+  public seleVistoria: boolean = true;
+  public seleData: boolean = true;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -106,26 +111,57 @@ export class LigarOrcamentoComponent implements OnInit, OnDestroy, AfterViewInit
   public LigarOrcamento(): void {
     let responsavel: any[];
     let vistorias_responsavel: string =  "";
+    this.botaoDesabilitado = true;
     //console.log(this.formulario);
 
     if ( this.formulario.value.vistoria === 'sim') {
-      if ( this.FuncArrayEngenharia.length > 0) {
+      
+      if(this.FuncArrayEngenharia.length <= 0){ this.seleVistoria = false; }
+      if( this.formulario.value.data.trim() === '' || this.formulario.value.data === null ){ this.seleData     = false; } 
+      if ( this.FuncArrayEngenharia.length > 0 && (this.formulario.value.data.trim() !== '' && this.formulario.value.data !== null) ) {
 
-        responsavel = this.FuncOrcamento[this.formulario.value.responsavel];
-        for ( let i = 0; i < this.FuncArrayEngenharia.length; i++) {
-          vistorias_responsavel += this.FuncArrayEngenharia[i].usuario_nome + " " + this.FuncArrayEngenharia[i].usuario_sobrenome+", ";
-        }
-        this.orcamentoService.ligarOrcamento(this.formulario.value, vistorias_responsavel, this.routeParaGravar, responsavel)
-          .subscribe((resposta: any) => {
-            console.log('resposta do API ligacao: ', resposta);
-            if(resposta[0].resultado === '1' ) {
-              this.router.navigate(['/listaOrcamento']);
-            }
-          });
+        this.LigarOrcamentoSitema(responsavel, vistorias_responsavel)
+        
+      } else { 
+        
+        this.botaoDesabilitado = false;
       }
+    } else if(this.formulario.value.vistoria === 'nao') {
+      this.LigarOrcamentoSitemaSemVistoria(responsavel, vistorias_responsavel)
     }
 
-
   }
+
+
+
+  public LigarOrcamentoSitema(responsavel: any[], vistorias_responsavel): void {
+    responsavel = this.FuncOrcamento[this.formulario.value.responsavel];
+    for ( let i = 0; i < this.FuncArrayEngenharia.length; i++) {
+      vistorias_responsavel += this.FuncArrayEngenharia[i].usuario_nome + " " + this.FuncArrayEngenharia[i].usuario_sobrenome+", ";
+    }
+    console.log('chegou para gravar');
+     this.orcamentoService.ligarOrcamento(this.formulario.value, vistorias_responsavel, this.routeParaGravar, responsavel)
+      .subscribe((resposta: any) => {
+        console.log('resposta do API ligacao: ', resposta);
+        if(resposta[0].resultado === '1' ) {
+          this.botaoDesabilitado = false;
+          this.router.navigate(['/listaOrcamento']);
+        }
+      }); 
+  }
+
+  public LigarOrcamentoSitemaSemVistoria(responsavel: any[], vistorias_responsavel){
+    responsavel = this.FuncOrcamento[this.formulario.value.responsavel];
+    this.orcamentoService.ligarOrcamentoVistoria(this.routeParaGravar, responsavel)
+      .subscribe((resposta: any) => {
+        //console.log('resposta do API ligacao: ', resposta);
+        if(resposta[0].resultado === '1' ) {
+          this.botaoDesabilitado = false;
+          this.router.navigate(['/listaOrcamento']);
+        }
+      })
+  }
+
+
 
 }

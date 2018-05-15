@@ -72,7 +72,19 @@ export class OrcamentoService {
     formData.append('id_usuario', responsavel.usuario_id);
     formData.append('meio_entrega', formulario.meio_entrega);
 
-    return this.http.post(`${URL_API}//orcamento/ligarOrcamento`, formData)
+    return this.http.post(`${URL_API}/orcamento/ligarOrcamento`, formData)
+      .map((resposta: any) => resposta.json() );
+
+  }
+
+  public ligarOrcamentoVistoria(idOrcamento: string, responsavel: any): Observable<any> {
+    let responsavel_send: string = responsavel.usuario_nome+" "+responsavel.usuario_sobrenome;
+
+    formData.append('responsavel', responsavel_send);
+    formData.append('id_orcamento', idOrcamento);
+    formData.append('id_usuario', responsavel.usuario_id);
+
+    return this.http.post(`${URL_API}/orcamento/ligarOrcamento`, formData)
       .map((resposta: any) => resposta.json() );
 
   }

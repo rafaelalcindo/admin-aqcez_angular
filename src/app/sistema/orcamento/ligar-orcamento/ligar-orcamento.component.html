@@ -21,7 +21,7 @@
 
         <div class="col-sm-6" >
           <label for="data" >Data da  Vistoria</label>
-          <input type="date" class="form-control" id="data" name="data" placeholder="Data" minlength="4" [disabled]="PossuiVistoria" required value="" ngModel #inputData="ngModel" />
+          <input type="date" class="form-control {{ seleData? '' : 'is-invalid' }}" id="data" name="data" placeholder="Data" minlength="4" [disabled]="PossuiVistoria" required value="" ngModel #inputData="ngModel" />
         </div>
       </div>
       <br/>
@@ -32,7 +32,7 @@
         </div>
         <div class="col-sm-6" >
           <label for="responsavel_vistoria" >Responsável Vistoria:</label>
-          <select class="form-control" [disabled]="PossuiVistoria" >
+          <select class="form-control {{ seleVistoria? '': 'is-invalid' }}" [disabled]="PossuiVistoria" >
               <option *ngFor="let funcEnge of FuncEngenharia; let i = index" value="{{ i }}" #indexArray (click)="selecionaFuncVistoria(indexArray.value)"  > {{ funcEnge.usuario_nome }} {{ funcEnge.usuario_sobrenome }} </option>
           </select>
           <div  >
@@ -48,6 +48,16 @@
             <option value="projeto" >Projeto</option>
             <option value="projeto" >Kit no Email</option>
           </select>
+        </div>
+      </div>
+      <div class=" row" >
+        <div class="col-sm-12" >
+          <div class="alert alert-danger" role="alert">
+            Por favor selecione se vai ter vistoria!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         </div>
       </div>
       <hr/>
