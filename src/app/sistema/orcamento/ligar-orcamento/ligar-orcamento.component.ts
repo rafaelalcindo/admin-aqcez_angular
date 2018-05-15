@@ -37,7 +37,7 @@ export class LigarOrcamentoComponent implements OnInit, OnDestroy, AfterViewInit
 
   private nomesEngenheiros: any[];
 
-  public PossuiVistoria: boolean = true;
+  public PossuiVistoria: boolean = false;
 
   // =============== Validação formulario =================
 
@@ -115,19 +115,22 @@ export class LigarOrcamentoComponent implements OnInit, OnDestroy, AfterViewInit
     //console.log(this.formulario);
 
     if ( this.formulario.value.vistoria === 'sim') {
-      
+
       if(this.FuncArrayEngenharia.length <= 0){ this.seleVistoria = false; }
-      if( this.formulario.value.data.trim() === '' || this.formulario.value.data === null ){ this.seleData     = false; } 
+      if( this.formulario.value.data.trim() === '' || this.formulario.value.data === null ){ this.seleData     = false; }
       if ( this.FuncArrayEngenharia.length > 0 && (this.formulario.value.data.trim() !== '' && this.formulario.value.data !== null) ) {
 
         this.LigarOrcamentoSitema(responsavel, vistorias_responsavel)
-        
-      } else { 
-        
+
+      } else {
+
         this.botaoDesabilitado = false;
       }
     } else if(this.formulario.value.vistoria === 'nao') {
       this.LigarOrcamentoSitemaSemVistoria(responsavel, vistorias_responsavel)
+    }else {
+      this.PossuiVistoria = true;
+      this.botaoDesabilitado = false;
     }
 
   }
@@ -147,7 +150,7 @@ export class LigarOrcamentoComponent implements OnInit, OnDestroy, AfterViewInit
           this.botaoDesabilitado = false;
           this.router.navigate(['/listaOrcamento']);
         }
-      }); 
+      });
   }
 
   public LigarOrcamentoSitemaSemVistoria(responsavel: any[], vistorias_responsavel){
