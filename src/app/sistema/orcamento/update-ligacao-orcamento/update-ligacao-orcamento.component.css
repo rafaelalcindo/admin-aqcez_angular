@@ -1,0 +1,48 @@
+.container {
+  margin-top: 40px;
+  background-color: #ffffff;
+  margin-bottom: 40px;
+  border-radius: 4px;
+}
+
+#titulo_centro {
+  margin-top: 5%;
+}
+
+.alerta_linha {
+  margin-top: 3%;
+}
+
+/* mudança bootstrap */
+
+.btn {
+  border-radius: 0px;
+  width: 70%;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.form-control{
+  border-radius: 0px;
+}
+
+.form-control:focus{
+  border-color: #a6a6a6;
+  box-shadow: 0px 0px 1px rgb(115, 115, 115) inset, 0px 0px 4px rgb(115, 115, 115);
+}
+
+.badge-pill {
+  border-radius: 0px;
+  margin-right: 4px;
+  display: inline;
+}
+
+.badge-primary {
+  cursor: pointer;
+}
+
+
+input.ng-invalid.ng-touched{
+  border-color: #ff4d4d;
+  box-shadow: 0px 0px 1px 	rgb(255, 77, 77) inset, 0px 0px 4px 	rgb(255, 77, 77);
+}

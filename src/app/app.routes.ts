@@ -14,6 +14,8 @@ import { CadastroOrcamentoComponent } from './sistema/cadastro-orcamento/cadastr
 import { TelaOrcamentoComponent } from './sistema/orcamento/tela-orcamento/tela-orcamento.component';
 import { ListarOrcamentoComponent } from './sistema/orcamento/listar-orcamento/listar-orcamento.component';
 import { LigarOrcamentoComponent } from './sistema/orcamento/ligar-orcamento/ligar-orcamento.component';
+import { UpdateLigacaoOrcamentoComponent } from './sistema/orcamento/update-ligacao-orcamento/update-ligacao-orcamento.component';
+
 
 
 //sistema
@@ -36,7 +38,8 @@ export const  ROUTES: Routes = [
   { path: 'telaOrcamento', component: TelaOrcamentoComponent, canActivate: [AutenticacaoGuard] },
   { path: 'cadastro-orcamento', component: CadastroOrcamentoComponent, canActivate: [AutenticacaoGuard] },
   { path: 'listaOrcamento', component: ListarOrcamentoComponent, canActivate: [AutenticacaoGuard] },
-  { path: 'ligarOrcamento/:id', component: LigarOrcamentoComponent, canActivate: [AutenticacaoGuard] }
-  
+  { path: 'ligarOrcamento/:id', component: LigarOrcamentoComponent, canActivate: [AutenticacaoGuard] },
+  { path: 'orcamento/updateLigacaoOrcamento/:id', component: UpdateLigacaoOrcamentoComponent, canActivate: [AutenticacaoGuard]  }
+
 
 ];

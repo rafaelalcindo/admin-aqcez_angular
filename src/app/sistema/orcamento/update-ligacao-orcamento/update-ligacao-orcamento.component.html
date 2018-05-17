@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3 class="text-center" id="titulo_centro" >Tela de Ligar Orçamento</h3>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="tela_liga_responsavel">
+    <form novalidate [formGroup]="formulario" (ngSubmit)="atualizarLigacaoFormulario()" >
+
+        <div class="row">
+          <div class="col-sm-6">
+            <label>Responsável</label>
+            <select class="form-control" formControlName="responsavel" id="responsavel" >
+              <option *ngFor="let funcOrc of FuncOrcamento; let usuIndex = index" value="{{ usuIndex }}"   (click)="responsavelSelecionado()" >{{ funcOrc.usuario_nome }} {{ funcOrc.usuario_sobrenome }} </option>
+            </select>
+          </div>
+
+          <div class="col-sm-6" >
+            <label>Data da Vistoria</label>
+            <input type="date" class="form-control {{ seleData? '' : 'is-invalid' }}" id="data" formControlName="data_vistoria" placeholder="Data"  [disabled]="PossuiVistoria" valeu="" />
+          </div>
+        </div>
+        <br/>
+        <div class="row" >
+          <div class="col-sm-6" >
+            <label for="vistoria" >Vistoria:</label>
+            <p> <input type="radio" class="vistoria" id="vistoria" value="sim" formControlName="vistoria" name="vistoria" />Sim &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="vistoria" id="vistoria" value="nao" name="vistoria" formControlName="vistoria" [checked]='true' />Não </p>
+          </div>
+
+          <div class="col-sm-6" >
+            <label for="responsavel_vistoria" >Responsável Vistoria:</label>
+            <select class="form-control {{ seleVistoria? '': 'is-invalid' }}" [disabled]="PossuiVistoria" >
+              <option *ngFor="let funcEnge of FuncEngenharia; let i = index " value="{{ i }}" (click)="selecionaFuncVistoria(i)" >{{ funcEnge.usuario_nome }} {{ funcEnge.usuario_sobrenome }}</option>
+            </select>
+            <div>
+              <span *ngFor="let funcArrayEnge of FuncArrayEngenharia; let engIndex = index" class="badge badge-primary badge-pill" >{{ funcArrayEnge.usuario_nome }} {{ funcArrayEnge.usuario_sobrenome }}   &nbsp;&nbsp; <span class="badge badge-primary"  (click)="eliminarSelecionadoFuncVistoria(engIndex)" >X</span>  </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div class="col-sm-6" >
+            <label>Meio de Entrega</label>
+            <select class="form-control" [disabled]="PossuiVistoria" id="meio_entrega" name="meio_entrega" formControlName="meio_entrega"  >
+              <option value="projeto" >Projeto </option>
+              <option value="Kit no E-mail" >Kit no E-mail</option>
+            </select>
+          </div>
+        </div>
+
+        <hr/>
+
+        <div class="row" >
+          <div class="col-sm" >
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-secondary" [disabled]="botaoDesabilitado">Ligar</button>
+            </div>
+          </div>
+        </div>
+
+    </form>
+  </div>
+
+
+</div>

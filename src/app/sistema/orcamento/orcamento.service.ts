@@ -89,6 +89,11 @@ export class OrcamentoService {
 
   }
 
+  public pegarOrcamentoLigarUpdate(idOrcamento: string): Observable<any> {
+    return this.http.get(`${URL_API}/orcamento/pegarOrcamentoIndividual/${idOrcamento}`)
+      .map((resposta: any) => resposta.json());
+  }
+
 
 }
 

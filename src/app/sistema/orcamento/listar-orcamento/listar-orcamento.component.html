@@ -27,7 +27,7 @@
               <td>{{ listaOrcamento.telefone }}</td>
               <td> {{ listaOrcamento.responsavel }} </td>
               <td *ngIf="listaOrcamento.responsavel === null" > <button type="button" [routerLink]="['/ligarOrcamento', listaOrcamento.id]" class="btn btn-dark">Adicionar Responsável</button>  </td>
-              <td *ngIf="listaOrcamento.responsavel !== null" > <button type="button" class="btn btn-warning">Editar Responsável</button>  </td>
+              <td *ngIf="listaOrcamento.responsavel !== null" > <button type="button" [routerLink]="['/orcamento/updateLigacaoOrcamento', listaOrcamento.id]" class="btn btn-warning">Editar Responsável</button>  </td>
             </tr>
 
           </tbody>
