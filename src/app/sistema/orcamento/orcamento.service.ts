@@ -54,7 +54,7 @@ export class OrcamentoService {
     return this.http.get(`${URL_API}/orcamento/listaFuncionarioEngenharia`)
         .map((resposta: any) => resposta.json());
   }
-  // ============================ Ligar Orçamento =====================================
+  // ============================ Ligar Orçamento =============================
   public ligarOrcamento(formulario: any, FuncEng: string, idOrcamento: string, responsavel: any): Observable<any> {
     let responsavel_send: string = responsavel.usuario_nome+" "+responsavel.usuario_sobrenome;
     let vistoria: string;
@@ -89,9 +89,52 @@ export class OrcamentoService {
 
   }
 
+  // ===================== Atualizar Orçamento ==============================
+
   public pegarOrcamentoLigarUpdate(idOrcamento: string): Observable<any> {
     return this.http.get(`${URL_API}/orcamento/pegarOrcamentoIndividual/${idOrcamento}`)
       .map((resposta: any) => resposta.json());
+  }
+
+  public ligarOrcamentoUpdate(formulario: any, FuncEng: string, idOrcamento: string, responsavel: any): Observable<any> {
+    let responsavel_send: string = responsavel.usuario_nome+" "+responsavel.usuario_sobrenome;
+    let vistoria: string;
+
+    if(formulario.vistoria === 'sim') { vistoria = '1'; } else { vistoria = '0'; }
+    console.log('responsavel: ', responsavel.usuario_nome);
+    console.log('formulario: ', formulario);
+
+    formData.append('responsavel', responsavel_send);
+    formData.append('vistoria', vistoria);
+    formData.append('responsavel_vistoria', FuncEng);
+    formData.append('data_vistoria', formulario.data);
+    formData.append('id_orcamento', idOrcamento);
+    formData.append('id_usuario', responsavel.usuario_id);
+    formData.append('meio_entrega', formulario.meio_entrega);
+
+    /*console.log('responsavel: ', responsavel_send);
+    console.log('vistoria: ', vistoria);
+    console.log('responsavel Vistoria: ', FuncEng);
+    console.log('data_vistoria: ', formulario.data);
+    console.log('id_orcamento: ', idOrcamento);
+    console.log('id_usuario: ', responsavel.usuario_id );
+    console.log('meio_entrega: ', formulario.meio_entrega); */
+
+    
+    return this.http.post(`${URL_API}/orcamento/atualizarLigacaoOrcamento`, formData)
+      .map((resposta: any) => resposta.json() );
+      
+  }
+
+  public ligarOrcamentoVistoriaUpdate(idOrcamento: string, responsavel: any): Observable<any> {
+    let responsavel_send: string = responsavel.usuario_nome+" "+responsavel.usuario_sobrenome;
+
+    formData.append('responsavel', responsavel_send);
+    formData.append('id_orcamento', idOrcamento);
+    formData.append('id_usuario', responsavel.usuario_id);
+
+    return this.http.post(`${URL_API}/orcamento/atualizarLigacaoOrcamento`, formData)
+      .map((resposta: any) => resposta.json() );
   }
 
 

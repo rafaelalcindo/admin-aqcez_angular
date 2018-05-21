@@ -13,21 +13,21 @@
         <div class="row">
           <div class="col-sm-6">
             <label>Responsável</label>
-            <select class="form-control" formControlName="responsavel" id="responsavel" >
-              <option *ngFor="let funcOrc of FuncOrcamento; let usuIndex = index" value="{{ usuIndex }}"   (click)="responsavelSelecionado()" >{{ funcOrc.usuario_nome }} {{ funcOrc.usuario_sobrenome }} </option>
+            <select class="form-control" formControlName="responsavel" name="responsavel" id="responsavel" >
+              <option *ngFor="let funcOrc of FuncOrcamento; let usuIndex = index" [selected]="funcOrc.usuario_nome === responsavel_compare[0]" value="{{ usuIndex }}"   (click)="responsavelSelecionado()"  >{{ funcOrc.usuario_nome }} {{ funcOrc.usuario_sobrenome }} </option>
             </select>
           </div>
 
           <div class="col-sm-6" >
             <label>Data da Vistoria</label>
-            <input type="date" class="form-control {{ seleData? '' : 'is-invalid' }}" id="data" formControlName="data_vistoria" placeholder="Data"  [disabled]="PossuiVistoria" valeu="" />
+            <input type="date" class="form-control {{ seleData? '' : 'is-invalid' }}" id="data" formControlName="data" name="data" placeholder="Data"  [value]="data_compare" [disabled]="PossuiVistoria" />
           </div>
         </div>
         <br/>
         <div class="row" >
           <div class="col-sm-6" >
             <label for="vistoria" >Vistoria:</label>
-            <p> <input type="radio" class="vistoria" id="vistoria" value="sim" formControlName="vistoria" name="vistoria" />Sim &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="vistoria" id="vistoria" value="nao" name="vistoria" formControlName="vistoria" [checked]='true' />Não </p>
+            <p> <input type="radio" class="vistoria" id="vistoria" value="sim" formControlName="vistoria" #vistoriaSelect (change)="temVistoria(vistoriaSelect.value)"  name="vistoria" [checked]="revisao_compare1" />Sim &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="vistoria" id="vistoria" value="nao" #vistoriaSelect2 (change)="temVistoria(vistoriaSelect2.value)" name="vistoria" formControlName="vistoria" [checked]='revisao_compare2' />Não </p>
           </div>
 
           <div class="col-sm-6" >
@@ -44,9 +44,8 @@
         <div class="row" >
           <div class="col-sm-6" >
             <label>Meio de Entrega</label>
-            <select class="form-control" [disabled]="PossuiVistoria" id="meio_entrega" name="meio_entrega" formControlName="meio_entrega"  >
-              <option value="projeto" >Projeto </option>
-              <option value="Kit no E-mail" >Kit no E-mail</option>
+            <select class="form-control"  id="meio_entrega" name="meio_entrega" formControlName="meio_entrega" [disabled]="PossuiVistoria" >              
+              <option *ngFor="let meio_entrega of meio_entrega_list" value="{{ meio_entrega.valor }}" [selected]="meio_entrega.valor === meio_entrega_compare" >{{ meio_entrega.nome }}</option>
             </select>
           </div>
         </div>
@@ -56,7 +55,7 @@
         <div class="row" >
           <div class="col-sm" >
             <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-secondary" [disabled]="botaoDesabilitado">Ligar</button>
+              <button type="submit" class="btn btn-secondary" [disabled]="botaoDesabilitado">Atualizar</button>
             </div>
           </div>
         </div>
