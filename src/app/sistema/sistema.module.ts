@@ -20,6 +20,7 @@ import { OrcamentoService } from './orcamento/orcamento.service';
 import { LigarOrcamentoComponent } from './orcamento/ligar-orcamento/ligar-orcamento.component';
 import { ListarOrcamentoComponent } from './orcamento/listar-orcamento/listar-orcamento.component';
 import { UpdateLigacaoOrcamentoComponent } from './orcamento/update-ligacao-orcamento/update-ligacao-orcamento.component';
+import { InformaticaComponent } from './informatica/informatica.component';
 
 
 
@@ -31,7 +32,8 @@ import { UpdateLigacaoOrcamentoComponent } from './orcamento/update-ligacao-orca
     TelaOrcamentoComponent,
     LigarOrcamentoComponent,
     ListarOrcamentoComponent,
-    UpdateLigacaoOrcamentoComponent
+    UpdateLigacaoOrcamentoComponent,
+    InformaticaComponent
   ],
   imports: [
     CommonModule,

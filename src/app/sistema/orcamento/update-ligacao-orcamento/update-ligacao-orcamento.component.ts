@@ -198,7 +198,6 @@ export class UpdateLigacaoOrcamentoComponent implements OnInit, OnDestroy, After
     if ( data === null || data.trim() === '' ) {
       this.mensagemErro = [{ campo: 'Data', mensagem: 'Por favor coloque a data' }];
     }
-
     if ( meio_entrega === null || meio_entrega.trim() === '' ) {
       this.mensagemErro = [{ campo: 'Meio Entrega', mensagem: 'Por favor selecione o meio de entrega' }];
     }
